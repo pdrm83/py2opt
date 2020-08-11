@@ -1,0 +1,120 @@
+Aberdeen,57,9,2,9
+Adelaide,34,55,138,36
+Algiers,36,50,3,0
+Amsterdam,52,22,4,53
+Ankara,39,55,32,55
+Asuncion,25,15,57,40
+Athens,37,58,23,43
+Auckland,36,52,174,45
+Bangkok,13,45,100,30
+Barcelona,41,23,2,9
+Beijing,39,55,116,25
+BeleBordeaux,44,50,0,31
+Bremen,53,5,8,49
+Brisbane,27,29,153,8
+Bristol,51,28,2,35
+Brussels,50,52,4,22
+Bucharest,44,25,26,7
+Budapest,47,30,19,5
+Buenos Aires,34,35,58,22
+Cairo,30,2,31,21
+Calcutta,22,34,88,24
+Canton,23,7,113,15
+Cape Town,33,55,18,22
+Caracas,10,28,67,2
+Cayenne,4,49,52,18
+Chihuahua,28,37,106,5
+Chongqing,29,46,106,34
+Copenhagen,55,40,12,34
+Cordoba,31,28,64,10
+Dakar,14,40,17,28
+Darwin,12,28,130,51
+Djibouti,11,30,43,3
+Dublin,53,20,6,15
+Durban,29,53,30,53
+Edinburgh,55,55,3,10
+Frankfurt,50,7,8,41
+Georgetown,6,45,58,15
+Glasgow,55,50,4,15
+Guatemala City,14,37,90,31
+Guayaquil,2,10,79,56
+Hamburg,53,33,10,2
+Hammerfest,70,38,23,38
+Havana,23,8,82,23
+Helsinki,60,10,25,0
+Hobart,42,52,147,19
+Hong Kong,22,20,114,11
+Iquique,20,10,70,7
+Irkutsk,52,30,104,20
+Jakarta,6,16,106,48
+Johannesburg,26,12,28,4
+Kingston,17,59,76,49
+Kinshasa,4,18,15,17
+Kuala Lumpur,3,8,101,42
+La Paz,16,27,68,22
+Leeds,53,45,1,30
+Lima,12,0,77,2
+Lisbon,38,44,9,9
+Liverpool,53,25,3,0
+London,51,32,0,5
+Lyons,45,45,4,50
+Madrid,40,26,3,42
+Manchester,53,30,2,15
+Manila,14,35,120,57
+Marseilles,43,20,5,20
+Mazatlan,23,12,106,25
+Mecca,21,29,39,45
+Melbourne,37,47,144,58
+Mexico City,19,26,99,7
+Milan,45,27,9,10
+Montevideo,34,53,56,10
+Moscow,55,45,37,36
+Munich,48,8,11,35
+Nagasaki,32,48,129,57
+Nagoya,35,7,136,56
+Nairobi,1,25,36,55
+Nanjing,32,3,118,53
+Naples,40,50,14,15
+New Delhi,28,35,77,12
+Newcastle-on-Tyne,54,58,1,37
+Odessa,46,27,30,48
+Osaka,34,32,135,30
+Oslo,59,57,10,42
+Panama City,8,58,79,32
+Paramaribo,5,45,55,15
+Paris,48,48,2,20
+Perth,31,57,115,52
+Plymouth,50,25,4,5
+Port Moresby,9,25,147,8
+Prague,50,5,14,26
+Rangoon,16,50,96,0
+Reykjavik,64,4,21,58
+Rio de Janeiro,22,57,43,12
+Rome,41,54,12,27
+Salvador,12,56,38,27
+Santiago,33,28,70,45
+St. Petersburg,59,56,30,18
+Sao Paulo,23,31,46,31
+Shanghai,31,10,121,28
+Singapore,1,14,103,55
+Sofia,42,40,23,20
+Stockholm,59,17,18,3
+Sydney,34,0,151,0
+Tananarive,18,50,47,33
+Teheran,35,45,51,45
+Tokyo,35,40,139,45
+Tripoli,32,57,13,12
+Venice,45,26,12,20
+Veracruz,19,10,96,10
+Vienna,48,14,16,20
+Vladivostok,43,10,132,0
+Warsaw,52,14,21,0
+Wellington,41,17,174,47
+Zurich,47,21,8,31
+m,1,28,48,29
+Belfast,54,37,5,56
+Belgrade,44,52,20,32
+Berlin,52,30,13,25
+Birmingham,52,25,1,55
+Bogota,4,32,74,15
+Bombay,19,0,72,48
