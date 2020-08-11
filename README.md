@@ -11,9 +11,11 @@ such as logistic planning or DNA sequencing. So, having a fast and simple method
 ## Library
 The library requires the following libraries:
 
-* Numpy
-* Random
-* Time
+* numpy
+* math
+* time
+* random2
+* itertools
 
 ## Install
 
@@ -21,17 +23,15 @@ It can be installed using pip:
 ```python
 pip install py2opt
 ```
-Alternatively it can be installed via conda:
 
-```python
-conda install -c conda-forge py2opt
-```
 ## Usage
 
 To use this library, you must have a distance matrix showing the pair distance among all nodes. Then, the first thing 
 to do is create an instance of the RouteFinder class. 
 
 ```python
+from py2opt.routefinder import RouteFinder
+
 nodes = ['A', 'B', 'C', 'D']
 dist_mat = [[0, 2, 5, 3], [2, 0, 7, 2], [5, 7, 0, 1], [3, 9, 1, 0 ]]
 route_finder = RouteFinder(dist_mat, nodes)
@@ -42,6 +42,8 @@ print(best_distance)
 print(best_route)
 ['A', 'D', 'C', 'B']
 ```
+The solver finds out the optimum order (re: minimum total distance traveled) in which the nodes must be visited along 
+with the total distance traveled.
 
 And that's pretty much it!
 

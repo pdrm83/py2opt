@@ -1,7 +1,7 @@
-import random
+import random2
 import time
 
-from solver import Solver
+from py2opt.solver import Solver
 
 
 class RouteFinder:
@@ -22,7 +22,7 @@ class RouteFinder:
         while iteration < self.iterations:
             num_cities = len(self.distance_matrix)
             print(round(elapsed_time), 'sec')
-            initial_route = [0] + random.sample(range(1, num_cities), num_cities - 1)
+            initial_route = [0] + random2.sample(range(1, num_cities), num_cities - 1)
             tsp = Solver(self.distance_matrix, initial_route)
             new_route, new_distance, distances = tsp.two_opt()
 
@@ -45,9 +45,9 @@ class RouteFinder:
 
         if self.cities_names:
             best_route = [self.cities_names[i] for i in best_route]
-            return best_distance, best_route, best_distances
+            return best_distance, best_route
         else:
-            return best_distance, best_route, best_distances
+            return best_distance, best_route
 
     @staticmethod
     def writer(best_route, best_distance, cities_names):

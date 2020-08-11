@@ -1,5 +1,5 @@
-from helper import build_dist_matrix, open_file
-from routefinder import RouteFinder
+from py2opt.helper import build_dist_matrix, open_file
+from py2opt.routefinder import RouteFinder
 
 
 def test_distance():

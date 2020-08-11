@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="py2opt",
-    version="1.0.3",
+    version="1.0.9",
     description=" ",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -25,7 +25,7 @@ setup(
     ],
     packages=["Py2Opt"],
     include_package_data=True,
-    install_requires=[],
+    install_requires=['numpy', 'math', 'time', 'random2', 'itertools'],
     entry_points={
         "console_scripts": [
             "pdrm83=Py2Opt.__main__:main",
