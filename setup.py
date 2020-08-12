@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="py2opt",
-    version="1.0.9",
+    version="1.1.0",
     description="How to solve the traveling salesman problem with the 2-opt algorithm",
     long_description=README,
     long_description_content_type="text/markdown",
