@@ -5,7 +5,7 @@ from py2opt.solver import Solver
 
 
 class RouteFinder:
-    def __init__(self, distance_matrix, cities_names, iterations=1, writer_flag=False, method='py2opt'):
+    def __init__(self, distance_matrix, cities_names, iterations=5, writer_flag=False, method='py2opt'):
         self.distance_matrix = distance_matrix
         self.iterations = iterations
         self.writer_flag = writer_flag
@@ -28,7 +28,7 @@ class RouteFinder:
 
             if iteration == 0:
                 best_distance = new_distance
-                best_route = initial_route
+                best_route = new_route
             else:
                 pass
 

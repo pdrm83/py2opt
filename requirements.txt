@@ -1,5 +1,2 @@
 numpy
-math
-time
 random2
-itertools

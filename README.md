@@ -12,10 +12,7 @@ such as logistic planning or DNA sequencing. So, having a fast and simple method
 The library requires the following libraries:
 
 * numpy
-* math
-* time
 * random2
-* itertools
 
 ## Install
 
@@ -33,17 +30,19 @@ to do is create an instance of the RouteFinder class.
 from py2opt.routefinder import RouteFinder
 
 nodes = ['A', 'B', 'C', 'D']
-dist_mat = [[0, 2, 5, 3], [2, 0, 7, 2], [5, 7, 0, 1], [3, 9, 1, 0 ]]
-route_finder = RouteFinder(dist_mat, nodes)
+dist_mat = [[0, 29, 15, 35], [29, 0, 57, 42], [15, 57, 0, 61], [35, 42, 61, 0]]
+route_finder = RouteFinder(dist_mat, nodes, iterations=5)
 best_distance, best_route = route_finder.solve()
 
 print(best_distance)
-11
+114
 print(best_route)
-['A', 'D', 'C', 'B']
+['A', 'C', 'B', 'D']
 ```
 The solver finds out the optimum order (re: minimum total distance traveled) in which the nodes must be visited along 
-with the total distance traveled.
+with the total distance traveled. Note that the 2-opt algorithm doesn't guarantee the global optimum similar to other 
+heuristic search algorithms. So, the results can vary in each iteration.
+
 
 And that's pretty much it!
 
