@@ -1,3 +1,5 @@
+[![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)](https://github.com/DAVFoundation/captain-n3m0/blob/master/LICENSE)
+
 # 2-Opt Search Algorithm 
 
 In optimization, 2-opt is a simple local search algorithm with special swapping mechanism that suits well to solve the 
