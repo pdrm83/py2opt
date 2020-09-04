@@ -14,9 +14,9 @@ def test_gpt():
 
 
 def test_smoke():
-    nodes = ['A', 'B', 'C', 'D']
+    cities_names = ['A', 'B', 'C', 'D']
     dist_mat = [[0, 29, 15, 35], [29, 0, 57, 42], [15, 57, 0, 61], [35, 42, 61, 0]]
-    route_finder = RouteFinder(dist_mat, nodes, iterations=10)
+    route_finder = RouteFinder(dist_mat, cities_names, iterations=10)
     best_distance, best_route = route_finder.solve()
     assert best_distance == 114
 
