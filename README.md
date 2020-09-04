@@ -1,4 +1,5 @@
-[![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)](https://github.com/DAVFoundation/captain-n3m0/blob/master/LICENSE)
+[![license](https://img.shields.io/badge/license-MIT-success)](https://github.com/pdrm83/Py2Opt/blob/master/LICENSE.md)
+[![doc](https://img.shields.io/badge/docs-Medium-blue)](https://towardsdatascience.com/how-to-solve-the-traveling-salesman-problem-a-comparative-analysis-39056a916c9f)
 
 # 2-Opt Search Algorithm 
 
