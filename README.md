@@ -2,7 +2,6 @@
 [![doc](https://img.shields.io/badge/docs-Medium-blue)](https://towardsdatascience.com/how-to-solve-the-traveling-salesman-problem-a-comparative-analysis-39056a916c9f)
 
 # 2-Opt Search Algorithm 
-
 In optimization, 2-opt is a simple local search algorithm with special swapping mechanism that suits well to solve the 
 traveling salesman problem. This algorithm is sensitive to the initial point of search, i.e., its final results get 
 changed by different initial points. 2-opt runs very fast such that a tsp with 120 cities can be solved in less than 
@@ -12,22 +11,18 @@ such as logistic planning or DNA sequencing. So, having a fast and simple method
 detailed description, you can read this article: [How to Solve the Traveling Salesman Problem — A Comparative Analysis](https://towardsdatascience.com/how-to-solve-the-traveling-salesman-problem-a-comparative-analysis-39056a916c9f)
 
  
-## Library
-
+## Install
 The module requires the following libraries:
 
 * numpy
 * random2
 
-## Install
-
-It can be installed using pip:
+Then, it can be installed using pip:
 ```python
 pip install py2opt
 ```
 
 ## Usage
-
 To use this module, you must have a distance matrix `dist_mat` showing the pair distance among all nodes. Then, the 
 first thing to do is create an instance of the `RouteFinder` class. When you call the `solve` method, you will get the 
 `best_route` and `best_distance` of this problem. Check out the example below.
@@ -48,6 +43,5 @@ print(best_route)
 The solver finds out the optimum order (re: minimum total distance traveled) in which the nodes must be visited along 
 with the total distance traveled. Note that the 2-opt algorithm doesn't guarantee the global optimum similar to other 
 heuristic search algorithms. So, the results can vary in each iteration.
-
 
 And that's pretty much it!
