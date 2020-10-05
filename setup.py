@@ -23,7 +23,7 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ],
-    packages=["Py2Opt"],
+    packages=["py2opt"],
     include_package_data=True,
     install_requires=['numpy', 'random2'],
     entry_points={
