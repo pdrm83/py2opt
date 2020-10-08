@@ -2,7 +2,7 @@
 [![doc](https://img.shields.io/badge/docs-Medium-blue)](https://towardsdatascience.com/how-to-solve-the-traveling-salesman-problem-a-comparative-analysis-39056a916c9f)
 
 # 2-Opt Search Algorithm 
-In optimization, 2-opt is a simple local search algorithm with special swapping mechanism that suits well to solve the 
+In optimization, 2-opt is a simple local search algorithm with a special swapping mechanism that suits well to solve the 
 traveling salesman problem. This algorithm is sensitive to the initial point of search, i.e., its final results get 
 changed by different initial points. 2-opt runs very fast such that a tsp with 120 cities can be solved in less than 
 5 sec on the intel core i7. To get a more reliable result, you should run the 2-opt with different randomized initial 
