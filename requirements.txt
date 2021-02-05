@@ -1,2 +1,3 @@
-numpy
-random2
+-e .
+# numpy
+# random2
