@@ -1,5 +1,5 @@
 import pathlib
-from setuptools import setup, find_packages
+from setuptools import setup
 
 # The directory containing this file
 HERE = pathlib.Path(__file__).parent
@@ -27,7 +27,8 @@ setup(
     include_package_data=True,
     install_requires=[
         'numpy==1.20.0',
-        'random2==1.0.1'],
+        'random2==1.0.1',
+        'pytest'],
     entry_points={
         "console_scripts": [
             "pdrm83=Py2Opt.__main__:main",
