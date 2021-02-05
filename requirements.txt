@@ -1,3 +1,3 @@
 -e .
-# numpy
-# random2
+# numpy==1.20.0
+# random2==1.0.1

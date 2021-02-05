@@ -1,5 +1,5 @@
 import pathlib
-from setuptools import setup
+from setuptools import setup, find_packages
 
 # The directory containing this file
 HERE = pathlib.Path(__file__).parent
@@ -25,7 +25,9 @@ setup(
     ],
     packages=["py2opt"],
     include_package_data=True,
-    install_requires=['numpy', 'random2'],
+    install_requires=[
+        'numpy==1.20.0',
+        'random2==1.0.1'],
     entry_points={
         "console_scripts": [
             "pdrm83=Py2Opt.__main__:main",

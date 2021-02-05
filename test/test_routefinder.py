@@ -20,5 +20,3 @@ def test_smoke():
     route_finder = RouteFinder(dist_mat, cities_names, iterations=10)
     best_distance, best_route = route_finder.solve()
     assert best_distance == 114
-
-
