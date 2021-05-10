@@ -38,10 +38,15 @@ class Solver:
             previous_best = self.best_distance
             for swap_first in range(1, self.num_cities - 2):
                 for swap_last in range(swap_first + 1, self.num_cities - 1):
-                    new_route = self.swap(self.best_route, swap_first, swap_last)
-                    new_distance = self.calculate_path_dist(self.distance_matrix, new_route)
-                    self.distances.append(self.best_distance)
-                    if 0 < self.best_distance - new_distance:
+                    before_start = self.best_route[swap_first - 1]
+                    start = self.best_route[swap_first]
+                    end = self.best_route[swap_end]
+                    after_end = self.best_route[swap_end+1]
+                    before = self.distance_matrix[before_start][start] + self.distance_matrix[end][after_end]
+                    after = self.distance_matrix[before_start][end] + self.distance_matrix[start][after_end]
+                    if after < before:
+                        new_route = swap(self.best_route, swap_first, swap_last)
+                        new_distance = self.calculate_path_dist(self.distance_matrix, new_route)
                         self.update(new_route, new_distance)
 
             improvement_factor = 1 - self.best_distance/previous_best
