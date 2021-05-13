@@ -40,12 +40,12 @@ class Solver:
                 for swap_last in range(swap_first + 1, self.num_cities - 1):
                     before_start = self.best_route[swap_first - 1]
                     start = self.best_route[swap_first]
-                    end = self.best_route[swap_end]
-                    after_end = self.best_route[swap_end+1]
+                    end = self.best_route[swap_last]
+                    after_end = self.best_route[swap_last+1]
                     before = self.distance_matrix[before_start][start] + self.distance_matrix[end][after_end]
                     after = self.distance_matrix[before_start][end] + self.distance_matrix[start][after_end]
                     if after < before:
-                        new_route = swap(self.best_route, swap_first, swap_last)
+                        new_route = self.swap(self.best_route, swap_first, swap_last)
                         new_distance = self.calculate_path_dist(self.distance_matrix, new_route)
                         self.update(new_route, new_distance)
 
