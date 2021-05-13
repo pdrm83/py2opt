@@ -28,4 +28,5 @@ jobs:
         TWINE_PASSWORD: ${{secrets.PYPI_PASSWORD}}
       run: |
         python setup.py sdist bdist_wheel
+        python -m keyring --disable
         twine upload -u $TWINE_USERNAME -p $TWINE_PASSWORD dist/*
