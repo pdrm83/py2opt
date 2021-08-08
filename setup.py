@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="py2opt",
-    version="1.3.2",
+    version="1.3.5",
     description="How to solve the traveling salesman problem with the 2-opt algorithm",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -26,7 +26,7 @@ setup(
     packages=["py2opt"],
     include_package_data=True,
     install_requires=[
-        'numpy==1.20.0',
+        'numpy',
         'random2==1.0.1',
         'pytest'],
     entry_points={

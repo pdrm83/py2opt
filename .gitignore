@@ -1,5 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 venv/*
 .idea/*
+build/*
+dist/*
 *.pyc
 py2opt.egg-info/*
