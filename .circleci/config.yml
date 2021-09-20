@@ -5,18 +5,27 @@ orbs:
 jobs:
   test:
     docker:
-      - image: pdrm83/nlp-essentials:latest
+      - image: pdrm83/server:0.8
         auth:
           username: $USERNAME
           password: $PASSWORD
     environment:
       - USERNAME: pdrm83
       - PASSWORD: bi9&3v??NFXpSEk 
+    working_directory: ~/py2opt
     steps:
       - checkout
       - run: 
-          name: Run tests with JUnit as reporter
-          command:  jest --ci --runInBand --reporters=default --reporters=jest-junit
+          name: Install PyTest
+          command:  |
+            python3 -m pip install --upgrade pip
+            pip3 install pytest
+      - run: 
+          name: Install Py2Opt
+          command:  pip install .
+      - run: 
+          name: Run PyTest
+          command:  pytest 
       - store_test_results:
           path: ./src/test-results/
       - store_artifacts:
@@ -27,119 +36,30 @@ jobs:
     environment:
       - USERNAME_DOCKERHUB: pdrm83
       - PASSWORD_DOCKERHUB: bi9&3v??NFXpSEk
-      - IMAGE_NAME_OVH: 27085gn1.gra7.container-registry.ovh.net/library/ws
-      - BASE_URL_OVH: 27085gn1.gra7.container-registry.ovh.net
-      - USERNAME_OVH_HARBOR: sHMeLGWphW
-      - PASSWORD_OVH_HARBOR: 573I84z9l02qw16g
-    working_directory: ~/word_similarity
+    working_directory: ~/py2opt
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 19.03.13
       - run:
-          name: TAG Creation
-          command: |
-            TAG=`git rev-parse --short HEAD`
-            echo "export TAG=$TAG" >> $BASH_ENV
+          name: Build Package
+          command: python3 setup.py sdist bdist_wheel
       - run:
-          name: Build for Development
-          no_output_timeout: 45m
-          command: |
-            docker login --username $USERNAME_DOCKERHUB --password $PASSWORD_DOCKERHUB
-            docker build -f DockerfileAPI -t ${IMAGE_NAME_OVH}:${TAG} .
+          name: Upload to PyPi
+          command: twine upload dist/*
       - run: 
           name: Push
           command: |
             docker login $BASE_URL_OVH --username $USERNAME_OVH_HARBOR --password $PASSWORD_OVH_HARBOR
             docker push ${IMAGE_NAME_OVH}:${TAG}
-  deploy:
-    docker:
-      - image: pdrm83/server:0.8
-    environment:
-      - USERNAME_OVH_HARBOR: sHMeLGWphW
-      - PASSWORD_OVH_HARBOR: 573I84z9l02qw16g
-      - IMAGE_NAME_OVH: 27085gn1.gra7.container-registry.ovh.net/library/ws
-      - BASE_URL_OVH: 27085gn1.gra7.container-registry.ovh.net
-      - KUBECONFIG: deployment/ovh/kubeconfig_ws.yml
-    working_directory: ~/word_similarity
-    steps:
-      - checkout
-      - setup_remote_docker:
-          version: 19.03.13
-      - run:
-          name: TAG Creation
-          command: |
-            TAG=`git rev-parse --short HEAD`
-            IMAGE_NAME_OVH_COMPLETE="${IMAGE_NAME_OVH}:${TAG}"
-            echo $IMAGE_NAME_OVH_COMPLETE
-            echo "export IMAGE_NAME_OVH_COMPLETE=$IMAGE_NAME_OVH_COMPLETE" >> $BASH_ENV
-      - run:
-          name: Deploy for Development
-          command: |
-            envsubst <deployment/ovh/dev_build.yml> deployment/ovh/dev_build_subst.yml
-            kubectl replace -f deployment/ovh/dev_build_subst.yml
-            kubectl get pods
-      - run:
-          name: Info
-          command: |
-            kubectl cluster-info
-            kubectl describe services 
-            kubectl get services     
-  deploy-specific:
-    docker:
-      - image: pdrm83/server:0.8
-    environment:
-      - USERNAME_OVH_HARBOR: sHMeLGWphW
-      - PASSWORD_OVH_HARBOR: 573I84z9l02qw16g
-      - IMAGE_NAME_OVH: 27085gn1.gra7.container-registry.ovh.net/library/ws
-      - BASE_URL_OVH: 27085gn1.gra7.container-registry.ovh.net
-      - KUBECONFIG: deployment/ovh/kubeconfig_ws.yml
-    working_directory: ~/word_similarity
-    steps:
-      - checkout
-      - setup_remote_docker:
-          version: 19.03.13
-      - run:
-          name: TAG Assignment
-          command: |
-            TAG="5b3612f"
-            IMAGE_NAME_OVH_COMPLETE="${IMAGE_NAME_OVH}:${TAG}"
-            echo $IMAGE_NAME_OVH_COMPLETE
-            echo "export IMAGE_NAME_OVH_COMPLETE=$IMAGE_NAME_OVH_COMPLETE" >> $BASH_ENV
-      - run: 
-          name: Configuration
-          command: |
-            docker login $BASE_URL_OVH --username $USERNAME_OVH_HARBOR --password $PASSWORD_OVH_HARBOR
-            envsubst <deployment/ovh/dev_build.yml> deployment/ovh/dev_build_subst.yml
-      - run:
-          name: Deploy
-          command: |
-            kubectl replace -f deployment/ovh/dev_build_subst.yml
-      - run:
-          name: Info 
-          command: |
-            kubectl cluster-info
-            kubectl describe services
-            kubectl get services
    
 workflows: 
   version: 2
-  deploy-specific:
+  Test:
     jobs:
-      - deploy-specific:
-          filters:
-            branches:
-              only:
-                - master-d
-  build-deploy:
+      - test
+  Build:
     jobs:
       - build:
           filters:
             branches:
               only:
-                - master
-      - deploy:
-          requires:
-            - build
-
-
+                - feature
