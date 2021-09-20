@@ -39,18 +39,20 @@ jobs:
     working_directory: ~/py2opt
     steps:
       - checkout
+      - run: 
+          name: Install Twine
+          command:  |
+            python3 -m pip install --upgrade pip
+            pip3 install twine
       - run:
           name: Build Package
           command: python3 setup.py sdist bdist_wheel
       - run:
           name: Upload to PyPi
-          command: twine upload dist/*
-      - run: 
-          name: Push
           command: |
-            docker login $BASE_URL_OVH --username $USERNAME_OVH_HARBOR --password $PASSWORD_OVH_HARBOR
-            docker push ${IMAGE_NAME_OVH}:${TAG}
-   
+            echo $PYPI_PASSWORD
+            twine upload dist/* --username pdrm83 --password $PYPI_PASSWORD
+
 workflows: 
   version: 2
   Test:
@@ -62,4 +64,4 @@ workflows:
           filters:
             branches:
               only:
-                - feature
+                - release
