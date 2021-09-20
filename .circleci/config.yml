@@ -49,7 +49,7 @@ jobs:
           command: python3 setup.py sdist bdist_wheel
       - run:
           name: Upload to PyPi
-          command: twine upload dist/*
+          command: twine upload dist/* --username pdrm83 --password $PYPI_PASSWORD
       - run: 
           name: Push
           command: |
