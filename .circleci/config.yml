@@ -39,6 +39,11 @@ jobs:
     working_directory: ~/py2opt
     steps:
       - checkout
+      - run: 
+          name: Install Twine
+          command:  |
+            python3 -m pip install --upgrade pip
+            pip3 install twine
       - run:
           name: Build Package
           command: python3 setup.py sdist bdist_wheel
@@ -62,4 +67,4 @@ workflows:
           filters:
             branches:
               only:
-                - feature
+                - release
