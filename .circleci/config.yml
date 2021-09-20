@@ -51,7 +51,6 @@ jobs:
           name: Upload to PyPi
           command: |
             echo $PYPI_PASSWORD
-            echo PEDRAM
             twine upload dist/* --username pdrm83 --password $PYPI_PASSWORD
 
 workflows: 
