@@ -5,9 +5,10 @@ from py2opt.solver import Solver
 
 
 class RouteFinder:
-    def __init__(self, distance_matrix, cities_names, iterations=5, writer_flag=False, method='py2opt', verbose=True):
+    def __init__(self, distance_matrix, cities_names, iterations=5, return_to_begin=False, writer_flag=False, method='py2opt', verbose=True):
         self.distance_matrix = distance_matrix
         self.iterations = iterations
+        self.return_to_begin = return_to_begin
         self.writer_flag = writer_flag
         self.cities_names = cities_names
         self.verbose = verbose
@@ -25,6 +26,8 @@ class RouteFinder:
             if self.verbose:
                 print(round(elapsed_time), 'msec')
             initial_route = [0] + random2.sample(range(1, num_cities), num_cities - 1)
+            if self.return_to_begin:
+                initial_route.append(0)
             tsp = Solver(self.distance_matrix, initial_route)
             new_route, new_distance, distances = tsp.two_opt()
 
